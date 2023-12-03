@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_socketio import join_room, leave_room, send, SocketIO
 from string import ascii_uppercase
-import random
 import secrets
+import random
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = secrets.token_hex(32)
@@ -105,7 +105,3 @@ def disconnect():
 
     send({"name": name, "message": "has left the room"}, to=room)
     print(f"{name} has left the room {room}")
-
-
-if __name__ == "__main__":
-    app.run()
